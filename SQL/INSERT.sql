@@ -1,0 +1,1 @@
+INSERT INTO superuser VALUES ('U0001', 'P&S*HS%&1', 'Vedant', 'K', 'Sapra', 'vks220000@utdallas.edu');
