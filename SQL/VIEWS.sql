@@ -23,5 +23,5 @@ as
 create view APPOINTMENT_INFO(appointment_date, patient_fname, patient_lname, doctor_fname, doctor_lname, service_name)
 as
 	select appointment_date, patient.fname, patient.lname, doctor.fname, doctor.lname, service_name
-	from APPOINTMENT, SUPERUSER as patient, SUPERUSER as doctor
-	where patient_id = patient.user_id and doctor_id = doctor.user_id;
+	from APPOINTMENT as a, SUPERUSER as patient, SUPERUSER as doctor, SERVICE as s
+	where patient_id = patient.user_id and doctor_id = doctor.user_id and a.service_id = s.service_id;

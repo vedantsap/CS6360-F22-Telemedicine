@@ -19,7 +19,7 @@ create table patient(
 
 create table doctor(
     doctor_id varchar(5) not null primary key,
-    speciality varchar(30),
+    specialty varchar(30),
     foreign key(doctor_id) references superuser(user_id)
 );
 
@@ -57,7 +57,7 @@ create table payment(
 
 
 create table doctor_services(
-	service_id int not null,
+	service_id varchar(5) not null,
     specialty varchar(30),
     primary key (service_id, specialty),
     foreign key(service_id) references service(service_id)
