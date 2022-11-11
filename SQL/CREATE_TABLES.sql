@@ -54,3 +54,11 @@ create table payment(
     foreign key(appointment_id) references appointment(appointment_id),
     foreign key(admin_id) references user_admin(admin_id)
 );
+
+
+create table doctor_services(
+	service_id int not null,
+    specialty varchar(30),
+    primary key (service_id, specialty),
+    foreign key(service_id) references service(service_id)
+);
