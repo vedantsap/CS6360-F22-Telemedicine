@@ -11,13 +11,13 @@ where user_id in (
 	)
 );
 
+
 -- List the doctors available for each service
-select service_name, fname, lname, specialty, email
+select service_name, fname, lname, doctor.specialty, email
 from (superuser join doctor on user_id = doctor_id), (service natural join doctor_services)
 where
 	doctor.specialty = doctor_services.specialty;
 	
-
 
 -- Listing doctors in descending order of the number of appointments they've serviced
 select fname, minit, lname, count(*)
@@ -27,7 +27,7 @@ order by count(*) desc;
 
 
 -- Finding the most commonly requested service
-select service_id, count(*)
+select service_id, service_name, count(*)
 from (SERVICE natural join APPOINTMENT)
 group by service_id
 having count(*) >= all (
