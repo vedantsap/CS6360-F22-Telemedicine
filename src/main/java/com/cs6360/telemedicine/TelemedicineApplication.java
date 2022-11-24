@@ -27,7 +27,7 @@ public class TelemedicineApplication {
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
 		dataSource.setUrl("jdbc:mysql://localhost:3306/telemedicine_data?useSSL=false");
 		dataSource.setUsername("root");
-		dataSource.setPassword("i690330"); // update with your password
+		dataSource.setPassword("rootpass"); // update with your password
 		return dataSource;
 	}
 
