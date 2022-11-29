@@ -21,4 +21,7 @@ public class AppointmentController {
         return appointmentDAO.getAll();
     }
 
+    // @PostMapping("/bookAppointment")
+    // public Boolean bookAppointment()
+
 }
