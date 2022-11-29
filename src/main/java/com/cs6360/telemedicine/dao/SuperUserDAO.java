@@ -33,4 +33,20 @@ public class SuperUserDAO {
 		return users;
 	}
 
+	public List<SuperUser> getUserProfile(String userId) {
+		String query = "select * from superuser where user_id = ?";
+		List<Map<String,Object>> resultSet = jdbcTemplate.queryForList(query, new Object[] { userId });
+		List<SuperUser> users = new ArrayList<SuperUser>();
+        resultSet.forEach(r -> users.add(
+			SuperUser.builder()
+			.userId(String.valueOf(r.get("user_id")))
+			.fname(String.valueOf(r.get("fname")))
+			.lname(String.valueOf(r.get("lname")))
+			.minit(String.valueOf(r.get("minit")))
+			.email(String.valueOf(r.get("email")))
+			.build()
+		));
+		return users;
+	}
+
 }

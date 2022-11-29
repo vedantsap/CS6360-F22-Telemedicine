@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React from "react";
 
-class Login extends React.Component {
+class Admin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -11,9 +11,9 @@ class Login extends React.Component {
         };
     }
 
-    handleSubmit(e) {
+    handleLogin(e) {
         e.preventDefault()
-        let payload = { username: this.state.username, password: this.state.password, userType: 'PATIENT' };
+        let payload = { username: this.state.username, password: this.state.password, userType: 'ADMIN' };
         axios.post('http://localhost:8080/login/authenticate', payload).then((response) => {
             this.setState({ authenticated: response.data });
         });
@@ -22,10 +22,16 @@ class Login extends React.Component {
             + " --- authenticated? --- " + this.state.authenticated);
     };
 
+    handleLogout(e) {
+        e.preventDefault()
+        this.setState({ authenticated: false })
+    }
+
     render() {
         if (!this.state.authenticated) {
             return <div>
-                <form onSubmit={(e) => this.handleSubmit(e)}>
+                <h3>"Please login to the Admin's portal"</h3>
+                <form onSubmit={(e) => this.handleLogin(e)}>
                     <input
                         type="text"
                         name="Username"
@@ -40,9 +46,13 @@ class Login extends React.Component {
                 </form>
             </div>
         }
-        return <h2>"Login Successful"</h2>;
+        return <div>
+            <h3>"Welcome to the Admin's portal"</h3>
+            <button onClick={(e) => this.handleLogout(e) }>Logout</button>
+            
+        </div>;
 
     }
 };
 
-export default Login;
+export default Admin;
