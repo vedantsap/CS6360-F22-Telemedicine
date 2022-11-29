@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -15,20 +13,13 @@ public class ServiceDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public List<Service> getAll() {
-        String query = "select * from service";
+    public Service getIdFromName(String serviceName) {
+        String query = "select service_id from service where service_name = ?";
 
-        List<Service> services = new ArrayList<>();
-        List<Map<String,Object>> resultSet = jdbcTemplate.queryForList(query);
+        List<Map<String,Object>> rs = jdbcTemplate.queryForList(query, new Object[] { serviceName });
 
-        resultSet.forEach(r -> services.add(
-                Service.builder()
-                        .serviceId(String.valueOf(r.get("service_id")))
-                        .serviceName(String.valueOf(r.get("service_name")))
-                        .price(BigDecimal.valueOf(Double.parseDouble(String.valueOf(r.get("price")))))
-                        .build()
-        ));
+        Service service = Service.builder().serviceId(String.valueOf(rs.get(0).get("service_id"))).build();
 
-        return services;
+        return service;
     }
 }
