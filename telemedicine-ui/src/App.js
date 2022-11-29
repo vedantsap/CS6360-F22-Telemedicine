@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Login from "./components/Login";
+import Patient from "./components/Patient";
 import Tabs from "./components/Tabs";
 import "./App.css";
 
@@ -9,7 +9,7 @@ function App() {
       <h1>Telemedicine Portal</h1>
       <Tabs>
         <div label="Patient">
-          <Login />
+          <Patient />
         </div>
         <div label="Doctor">
           Nothing to see here, this tab is <em>empty</em>!
