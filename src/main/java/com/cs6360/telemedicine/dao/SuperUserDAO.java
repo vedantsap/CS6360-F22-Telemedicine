@@ -49,4 +49,14 @@ public class SuperUserDAO {
 		return users;
 	}
 
+	public SuperUser getIdFromName(String fname, String lname) {
+		String query = "select user_id from superuser service where fname = ? and lname = ?";
+
+        List<Map<String,Object>> rs = jdbcTemplate.queryForList(query, new Object[] { fname, lname });
+
+        SuperUser superUser = SuperUser.builder().userId(String.valueOf(rs.get(0).get("user_id"))).build();
+
+        return superUser;
+	}
+
 }

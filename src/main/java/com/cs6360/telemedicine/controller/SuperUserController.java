@@ -18,10 +18,8 @@ import com.cs6360.telemedicine.model.SuperUser;
 @CrossOrigin
 @RequestMapping("/superuser")
 public class SuperUserController {
-
 	@Autowired
-    private SuperUserDAO superUserDAO;
-
+	private SuperUserDAO superUserDAO;
 	@GetMapping("/getAllUsers")
 	public List<SuperUser> getAllUsers() {
 		return superUserDAO.getAll();
