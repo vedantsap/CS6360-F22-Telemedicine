@@ -18,6 +18,7 @@ public class AppointmentInformation {
     private Integer day;
     private Integer hour;
     private Integer minute;
+    private String timestamp;
     private String serviceName;
     private String patientId;
     private String patientFname;
