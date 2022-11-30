@@ -12,6 +12,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class AppointmentInformation {
+    private String appointmentId;
     private Integer year;
     private Integer month;
     private Integer day;
@@ -19,6 +20,9 @@ public class AppointmentInformation {
     private Integer minute;
     private String serviceName;
     private String patientId;
+    private String patientFname;
+    private String patientLname;
+    private String doctorId;
     private String doctorFname;
     private String doctorLname;
 }
