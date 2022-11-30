@@ -29,7 +29,7 @@ public class AuthenticationDAO {
             query = "select patient_id from patient where patient_id = ?";
         } else if(UserType.DOCTOR.toString().equals(credentials.getUserType())) {
             query = "select doctor_id from doctor where doctor_id = ?";
-        } else if(UserType.PATIENT.toString().equals(credentials.getUserType())) {
+        } else if(UserType.ADMIN.toString().equals(credentials.getUserType())) {
             query = "select admin_id from user_admin where admin_id = ?";
         }
         List<Map<String,Object>> resultSet = jdbcTemplate.queryForList(query, new Object[] { credentials.getUsername() });

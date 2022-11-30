@@ -20,6 +20,7 @@ public class AuthenticationController {
 
 	@PostMapping("/authenticate")
 	public Boolean authenticate(@RequestBody Credentials credentials) {
+		System.out.println("Credentials received: user=" + credentials.getUsername() + " usertype=" + credentials.getUserType());
 		Boolean trueUser = authenticationDAO.validateUser(credentials);
 		Boolean validCredentials = authenticationDAO.authenticate(credentials);
 		System.out.println("True user = " + true + " valid password = " + validCredentials);
