@@ -19,6 +19,17 @@ Please run all files in the /SQL package in the following order:
 3. VIEWS.sql
 4. COMPLEX_QUERIES.sql
 
+
+# ReactJS frontend setup guide
+Install node -> https://nodejs.org/en/download/
+
+1. Navigate to the `telemedicine-ui` directory
+2. Run the command `npm install react-scripts`
+3. Run the command `npm start`
+4. Access the frontend with `http://localhost:3000`
+
+
+
 # Springboot application setup guide
 Setup VSCode -> https://code.visualstudio.com/
 
