@@ -14,5 +14,7 @@ import lombok.Setter;
 public class Credentials {
     private String username;
     private String password;
-    private String userType;
+    private String userType; 
+    
+    
 }
