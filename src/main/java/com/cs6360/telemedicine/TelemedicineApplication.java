@@ -29,6 +29,7 @@ public class TelemedicineApplication {
 		dataSource.setUsername("root");
 		dataSource.setPassword("i690330"); // update with your password
 		return dataSource;
+		
 	}
 
 }
